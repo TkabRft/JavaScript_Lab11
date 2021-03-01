@@ -1,0 +1,9 @@
+.myBlock{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    border: 5px solid black;
+}
+.color-green{
+    color: green;
+}

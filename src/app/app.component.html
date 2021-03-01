@@ -1,0 +1,104 @@
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Hello, world</h1>
+    </div>
+  </div>
+</div> -->
+
+<!--Интерполяция-->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>{{title}}</h1>
+      <h1>10 + 20 = {{10 + 20}}</h1>
+      <h1>Число: {{muNumber}}</h1>
+      <h1>{{hello()}}</h1>
+      <h1>Флаг {{flag == true ? "вкл" : "выкл"}}</h1>
+      <h1>{{title.toUpperCase()}}</h1>
+    </div>
+  </div>
+</div>
+<!--Привязка свойств-->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary" [disabled] = !buttonEnable>Кнопка</button>
+    </div>
+  </div>
+</div>
+<hr />
+<!--Привязка событий-->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="myBlock" (mousemove)="getCoords($event)"></div>
+      <p>X: {{blockX}}, Y: {{blockY}}</p>
+    </div>
+  </div>
+</div>
+<hr />
+<!--Привязка в оба направления-->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="inputValue" />
+      </div>
+      <p>{{inputValue}}</p>
+    </div>
+  </div>
+</div>
+<hr />
+<!-- Локальная референция-->
+<!--ViewChild-->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <input type="text" class="form-control"  #someInput />
+      </div>
+      <button class="btn btn-primary" (click)="getData(someInput)">Кнопка</button>
+    </div>
+  </div>
+</div> 
+
+<!--Условный оператор-->
+<div class="container">
+  <div class="row">
+    <div class="col-12">     
+      <!-- <p *ngIf="flag === true">Флаг вкл</p>
+      <p *ngIf="flag === false">Флаг выкл</p> -->
+
+      <ng-container *ngIf="flag === true; else elseTemplate">
+        <p>Флаг вкл</p>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <p>Флаг выкл</p>
+      </ng-template>
+      
+    </div>
+  </div>
+</div>
+<hr>
+<!-- Циклы -->
+<div class="container">
+  <div class="row">
+    <div class="col-3" *ngFor="let item of someArray; let item_index = index">
+      {{item_index + 1}}: {{item}}
+    </div>
+  </div>
+</div> 
+<hr />
+
+<!--Динамические стили и css файлы-->
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <p [style.font-size]="fontSize + 'px'">Some text</p>
+      <p [ngStyle]="{'font-size': fontSize + 'px'}" [ngClass]="{'color-green': true}">Some text again</p>
+    </div>
+  </div>
+</div> 
+
+<!-- Жизненный цикл компонента -->
